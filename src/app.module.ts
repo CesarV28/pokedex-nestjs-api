@@ -7,6 +7,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { SeedModule } from './seed/seed.module';
 import { ConfigModule } from '@nestjs/config';
 import { EnvConfiguration } from './config/app.config';
+import { JoiValidaionSchema } from './config/joi.validation';
 
 
 
@@ -15,6 +16,7 @@ import { EnvConfiguration } from './config/app.config';
 
     ConfigModule.forRoot({
       load: [ EnvConfiguration ],
+      validationSchema: JoiValidaionSchema,
     }),
 
     ServeStaticModule.forRoot({
